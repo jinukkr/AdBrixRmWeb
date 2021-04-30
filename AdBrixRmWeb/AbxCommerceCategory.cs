@@ -12,7 +12,7 @@ namespace AdBrixRmWeb
         private string Category4 { get; set; }
         private string Category5 { get; set; }
 
-        public AbxCommerceCategory(string category1, string category2, string category3, string category4,
+        private AbxCommerceCategory(string category1, string category2, string category3, string category4,
             string category5)
         {
  
@@ -27,7 +27,7 @@ namespace AdBrixRmWeb
                 
         }
         
-        public AbxCommerceCategory(string category1, string category2, string category3, string category4)
+        private AbxCommerceCategory(string category1, string category2, string category3, string category4)
         {
  
             this.Category1 = category1;
@@ -40,7 +40,7 @@ namespace AdBrixRmWeb
                 
         }
         
-        public AbxCommerceCategory(string category1, string category2, string category3)
+        private AbxCommerceCategory(string category1, string category2, string category3)
         {
  
             this.Category1 = category1;
@@ -52,7 +52,7 @@ namespace AdBrixRmWeb
                 
         }
         
-        public AbxCommerceCategory(string category1, string category2)
+        private AbxCommerceCategory(string category1, string category2)
         {
  
             this.Category1 = category1;
@@ -62,7 +62,7 @@ namespace AdBrixRmWeb
 
                 
         }
-        public AbxCommerceCategory(string category1)
+        private AbxCommerceCategory(string category1)
         {
  
             this.Category1 = category1;

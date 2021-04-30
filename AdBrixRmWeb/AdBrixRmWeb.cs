@@ -35,74 +35,72 @@ namespace AdBrixRmWeb
             }
         }
 
-        public static Task<object> GetAllUserProperty()
+        public static async Task<object> GetAllUserProperty()
         {
-            
+            return await js.InvokeAsync<object>("adbrix.userProperty.getAll");
         }
 
-        public static Task<object> GetUserProperty(string propertyKey)
+        public static async Task<object> GetUserProperty(string propertyKey)
         {
-            
+            return await js.InvokeAsync<object>("dbrix.userProperty.get", propertyKey);
         }
 
         public static void RemoveUserProperty(string propertyKey)
         {
-            
+            js.InvokeVoidAsync("adbrix.userProperty.remove",propertyKey);
         }
 
         public static void RemoveUserProperties(List<string> propertyKeys)
         {
-            
+            js.InvokeVoidAsync("adbrix.userProperty.removes",propertyKeys);
+
         }
 
         public static void SignUp(AbxSignUpChannel signUpChannel)
         {
-            
+            string signUpChannelString = signUpChannel.ToString();
+            js.InvokeVoidAsync("adbrix.common.signUp",signUpChannelString);
+
         }
 
         public static void UserInvite(AbxInviteChannel inviteChannel, string userId)
         {
-            
+            string inviteChannelString = inviteChannel.ToString();
+            js.InvokeVoidAsync("adbrix.common.invite",inviteChannelString);
+
         }
 
         public static void UseCredit(int creditAmount)
         {
-            
-        }
-        
-        public static object CommerceSetProduct(string productId, string productName, Double price, int quantity,
-            Double discount, AbxCurrency currency, AbxCommerceCategory category,
-            Dictionary<string, object> attr)
-        {
-            
-        }
-        
-        public static object CommerceSetProduct(string productId, string productName, Double price, int quantity,
-            Double discount, AbxCurrency currency, AbxCommerceCategory category)
-        {
-            
-        }
+            js.InvokeVoidAsync("adbrix.common.useCredit",creditAmount);
 
+        }
+        
         public static void CommonPurchase(string orderId, List<AbxProduct> productList, Double orderSale,
             Double discount, Double deliveryCharge, AbxPaymentMethod paymentMethod, Dictionary<string, object> attr)
         {
-            
+            string paymentMethodString = paymentMethod.ToString();
+            js.InvokeVoidAsync("adbrix.common.purchase",orderId,productList,orderSale,discount,deliveryCharge,paymentMethodString,attr);
+
         }
         
         public static void CommonPurchase(string orderId, List<AbxProduct> productList, Double orderSale,
             Double discount, Double deliveryCharge, AbxPaymentMethod paymentMethod)
         {
-            
+            string paymentMethodString = paymentMethod.ToString();
+            js.InvokeVoidAsync("adbrix.common.purchase",orderId,productList,orderSale,discount,deliveryCharge,paymentMethodString);
         }
         
         public static void Event(string eventName)
         {
-            
+            js.InvokeVoidAsync("adbrix.event.send",eventName);
+
         }
         
         public static void Event(string eventName, Dictionary<string, object> attr)
         {
-            
+            js.InvokeVoidAsync("adbrix.event.send",eventName,attr);
+
         }
         
     }
